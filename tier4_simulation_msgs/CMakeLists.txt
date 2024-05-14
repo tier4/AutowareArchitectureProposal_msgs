@@ -18,6 +18,9 @@ ament_auto_find_build_dependencies()
 rosidl_generate_interfaces(${PROJECT_NAME}
   msg/FaultInjectionEvent.msg
   msg/SimulationEvents.msg
+  msg/TrafficLightArrayV1.msg
+  msg/TrafficLightBulbV1.msg
+  msg/TrafficLightV1.msg
   msg/UserDefinedValue.msg
   msg/UserDefinedValueType.msg
   DEPENDENCIES builtin_interfaces std_msgs)
