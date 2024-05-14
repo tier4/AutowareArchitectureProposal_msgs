@@ -24,7 +24,7 @@ uint8 SOLID_ON = 2
 uint8 FLASHING = 3
 
 # variables
-uint8 minor_version = 0
+uint8 enum_revision = 0
 uint8 color
 uint8 shape
 uint8 status
