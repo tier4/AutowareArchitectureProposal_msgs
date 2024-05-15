@@ -16,6 +16,7 @@ ament_auto_find_build_dependencies()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Command.msg"
+  "msg/State.msg"
   "msg/CooperateCommand.msg"
   "msg/CooperateResponse.msg"
   "msg/CooperateStatus.msg"
