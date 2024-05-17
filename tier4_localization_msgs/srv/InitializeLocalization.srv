@@ -6,8 +6,8 @@ uint8 DIRECT = 1
 geometry_msgs/PoseWithCovarianceStamped[<=1] pose_with_covariance
 
 # Variable to set initialization method
-# AUTO: The initial position is automatically estimated with localization algorithm. 
-#       The input pose will be used as an initial guess if provided. 
+# AUTO: The initial position is automatically estimated with localization algorithm.
+#       The input pose will be used as an initial guess if provided.
 # DIRECT: The initial position is set directly by the input pose without going through localization algorithm.
 uint8 method
 ---
