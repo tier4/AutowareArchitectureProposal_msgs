@@ -15,19 +15,21 @@
 #ifndef TIER4_AUTO_MSGS_CONVERTER__TIER4_AUTO_MSGS_CONVERTER_HPP_
 #define TIER4_AUTO_MSGS_CONVERTER__TIER4_AUTO_MSGS_CONVERTER_HPP_
 
-#include "autoware_auto_perception_msgs/msg/tracked_objects.hpp"
-#include "autoware_auto_planning_msgs/msg/path.hpp"
-#include "autoware_auto_planning_msgs/msg/trajectory.hpp"
-#include "autoware_auto_system_msgs/msg/autoware_state.hpp"
-#include "autoware_auto_system_msgs/msg/hazard_status_stamped.hpp"
-#include "autoware_auto_vehicle_msgs/msg/control_mode_report.hpp"
-#include "autoware_auto_vehicle_msgs/msg/gear_command.hpp"
-#include "autoware_auto_vehicle_msgs/msg/gear_report.hpp"
-#include "autoware_auto_vehicle_msgs/msg/hazard_lights_command.hpp"
-#include "autoware_auto_vehicle_msgs/msg/hazard_lights_report.hpp"
-#include "autoware_auto_vehicle_msgs/msg/steering_report.hpp"
-#include "autoware_auto_vehicle_msgs/msg/turn_indicators_command.hpp"
-#include "autoware_auto_vehicle_msgs/msg/turn_indicators_report.hpp"
+#include "autoware_perception_msgs/msg/tracked_objects.hpp"
+#include "autoware_planning_msgs/msg/path.hpp"
+#include "autoware_planning_msgs/msg/trajectory.hpp"
+#include "autoware_planning_msgs/msg/path.hpp"
+#include "autoware_planning_msgs/msg/trajectory.hpp"
+#include "autoware_system_msgs/msg/autoware_state.hpp"
+#include "autoware_system_msgs/msg/hazard_status_stamped.hpp"
+#include "autoware_vehicle_msgs/msg/control_mode_report.hpp"
+#include "autoware_vehicle_msgs/msg/gear_command.hpp"
+#include "autoware_vehicle_msgs/msg/gear_report.hpp"
+#include "autoware_vehicle_msgs/msg/hazard_lights_command.hpp"
+#include "autoware_vehicle_msgs/msg/hazard_lights_report.hpp"
+#include "autoware_vehicle_msgs/msg/steering_report.hpp"
+#include "autoware_vehicle_msgs/msg/turn_indicators_command.hpp"
+#include "autoware_vehicle_msgs/msg/turn_indicators_report.hpp"
 #include "tier4_external_api_msgs/msg/gear_shift_stamped.hpp"
 #include "tier4_external_api_msgs/msg/turn_signal_stamped.hpp"
 #include "tier4_perception_msgs/msg/dynamic_object_array.hpp"
@@ -43,40 +45,40 @@ namespace tier4_auto_msgs_converter
 {
 struct LightSignal
 {
-  autoware_auto_vehicle_msgs::msg::TurnIndicatorsCommand turn_signal;
-  autoware_auto_vehicle_msgs::msg::HazardLightsCommand hazard_signal;
+  autoware_vehicle_msgs::msg::TurnIndicatorsCommand turn_signal;
+  autoware_vehicle_msgs::msg::HazardLightsCommand hazard_signal;
 };
 
-inline auto convert(const autoware_auto_system_msgs::msg::AutowareState & state)
+inline auto convert(const autoware_system_msgs::msg::AutowareState & state)
 {
   tier4_system_msgs::msg::AutowareState iv_state;
   switch (state.state) {
-    case autoware_auto_system_msgs::msg::AutowareState::INITIALIZING:
+    case autoware_system_msgs::msg::AutowareState::INITIALIZING:
       iv_state.state = tier4_system_msgs::msg::AutowareState::INITIALIZING_VEHICLE;
       break;
-    case autoware_auto_system_msgs::msg::AutowareState::WAITING_FOR_ROUTE:
+    case autoware_system_msgs::msg::AutowareState::WAITING_FOR_ROUTE:
       iv_state.state = tier4_system_msgs::msg::AutowareState::WAITING_FOR_ROUTE;
       break;
-    case autoware_auto_system_msgs::msg::AutowareState::PLANNING:
+    case autoware_system_msgs::msg::AutowareState::PLANNING:
       iv_state.state = tier4_system_msgs::msg::AutowareState::PLANNING;
       break;
-    case autoware_auto_system_msgs::msg::AutowareState::WAITING_FOR_ENGAGE:
+    case autoware_system_msgs::msg::AutowareState::WAITING_FOR_ENGAGE:
       iv_state.state = tier4_system_msgs::msg::AutowareState::WAITING_FOR_ENGAGE;
       break;
-    case autoware_auto_system_msgs::msg::AutowareState::DRIVING:
+    case autoware_system_msgs::msg::AutowareState::DRIVING:
       iv_state.state = tier4_system_msgs::msg::AutowareState::DRIVING;
       break;
-    case autoware_auto_system_msgs::msg::AutowareState::ARRIVED_GOAL:
+    case autoware_system_msgs::msg::AutowareState::ARRIVED_GOAL:
       iv_state.state = tier4_system_msgs::msg::AutowareState::ARRIVAL_GOAL;
       break;
-    case autoware_auto_system_msgs::msg::AutowareState::FINALIZING:
+    case autoware_system_msgs::msg::AutowareState::FINALIZING:
       iv_state.state = tier4_system_msgs::msg::AutowareState::FINALIZING;
       break;
   }
   return iv_state;
 }
 
-inline auto convert(const autoware_auto_system_msgs::msg::HazardStatusStamped & status)
+inline auto convert(const autoware_system_msgs::msg::HazardStatusStamped & status)
 {
   tier4_system_msgs::msg::HazardStatusStamped iv_status;
   iv_status.header.stamp = status.stamp;
@@ -90,7 +92,7 @@ inline auto convert(const autoware_auto_system_msgs::msg::HazardStatusStamped & 
   return iv_status;
 }
 
-inline auto convert(const autoware_auto_planning_msgs::msg::Path & path)
+inline auto convert(const autoware_planning_msgs::msg::Path & path)
 {
   tier4_planning_msgs::msg::Path iv_path;
   iv_path.header = path.header;
@@ -107,7 +109,7 @@ inline auto convert(const autoware_auto_planning_msgs::msg::Path & path)
   return iv_path;
 }
 
-inline auto convert(const autoware_auto_planning_msgs::msg::Trajectory & traj)
+inline auto convert(const autoware_planning_msgs::msg::Trajectory & traj)
 {
   tier4_planning_msgs::msg::Trajectory iv_traj;
   iv_traj.header = traj.header;
@@ -124,40 +126,40 @@ inline auto convert(const autoware_auto_planning_msgs::msg::Trajectory & traj)
   return iv_traj;
 }
 
-inline auto convert(const autoware_auto_vehicle_msgs::msg::GearReport & gear)
+inline auto convert(const autoware_vehicle_msgs::msg::GearReport & gear)
 {
   tier4_vehicle_msgs::msg::ShiftStamped iv_shift;
   iv_shift.header.stamp = gear.stamp;
   switch (gear.report) {
-    case autoware_auto_vehicle_msgs::msg::GearReport::PARK:
+    case autoware_vehicle_msgs::msg::GearReport::PARK:
       iv_shift.shift.data = tier4_vehicle_msgs::msg::Shift::PARKING;
       break;
-    case autoware_auto_vehicle_msgs::msg::GearReport::REVERSE:
-    case autoware_auto_vehicle_msgs::msg::GearReport::REVERSE_2:
+    case autoware_vehicle_msgs::msg::GearReport::REVERSE:
+    case autoware_vehicle_msgs::msg::GearReport::REVERSE_2:
       iv_shift.shift.data = tier4_vehicle_msgs::msg::Shift::REVERSE;
       break;
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_2:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_3:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_4:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_5:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_6:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_7:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_8:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_9:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_10:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_11:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_12:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_13:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_14:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_15:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_16:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_17:
-    case autoware_auto_vehicle_msgs::msg::GearReport::DRIVE_18:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_2:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_3:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_4:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_5:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_6:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_7:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_8:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_9:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_10:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_11:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_12:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_13:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_14:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_15:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_16:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_17:
+    case autoware_vehicle_msgs::msg::GearReport::DRIVE_18:
       iv_shift.shift.data = tier4_vehicle_msgs::msg::Shift::DRIVE;
       break;
-    case autoware_auto_vehicle_msgs::msg::GearReport::LOW:
-    case autoware_auto_vehicle_msgs::msg::GearReport::LOW_2:
+    case autoware_vehicle_msgs::msg::GearReport::LOW:
+    case autoware_vehicle_msgs::msg::GearReport::LOW_2:
       iv_shift.shift.data = tier4_vehicle_msgs::msg::Shift::LOW;
       break;
     default:
@@ -169,20 +171,20 @@ inline auto convert(const autoware_auto_vehicle_msgs::msg::GearReport & gear)
 
 inline auto convert(const tier4_external_api_msgs::msg::GearShiftStamped & shift)
 {
-  autoware_auto_vehicle_msgs::msg::GearCommand auto_gear;
+  autoware_vehicle_msgs::msg::GearCommand auto_gear;
   auto_gear.stamp = shift.stamp;
   switch (shift.gear_shift.data) {
     case tier4_external_api_msgs::msg::GearShift::PARKING:
-      auto_gear.command = autoware_auto_vehicle_msgs::msg::GearCommand::PARK;
+      auto_gear.command = autoware_vehicle_msgs::msg::GearCommand::PARK;
       break;
     case tier4_external_api_msgs::msg::GearShift::REVERSE:
-      auto_gear.command = autoware_auto_vehicle_msgs::msg::GearCommand::REVERSE;
+      auto_gear.command = autoware_vehicle_msgs::msg::GearCommand::REVERSE;
       break;
     case tier4_external_api_msgs::msg::GearShift::DRIVE:
-      auto_gear.command = autoware_auto_vehicle_msgs::msg::GearCommand::DRIVE;
+      auto_gear.command = autoware_vehicle_msgs::msg::GearCommand::DRIVE;
       break;
     case tier4_external_api_msgs::msg::GearShift::LOW:
-      auto_gear.command = autoware_auto_vehicle_msgs::msg::GearCommand::LOW;
+      auto_gear.command = autoware_vehicle_msgs::msg::GearCommand::LOW;
       break;
     default:
       constexpr int default_val = 0;
@@ -193,12 +195,12 @@ inline auto convert(const tier4_external_api_msgs::msg::GearShiftStamped & shift
 }
 
 inline auto convert(
-  const autoware_auto_vehicle_msgs::msg::TurnIndicatorsReport & turn_indicators,
-  const autoware_auto_vehicle_msgs::msg::HazardLightsReport & hazard_lights)
+  const autoware_vehicle_msgs::msg::TurnIndicatorsReport & turn_indicators,
+  const autoware_vehicle_msgs::msg::HazardLightsReport & hazard_lights)
 {
   tier4_vehicle_msgs::msg::TurnSignal iv_turn_signal;
 
-  if (hazard_lights.report == autoware_auto_vehicle_msgs::msg::HazardLightsReport::ENABLE) {
+  if (hazard_lights.report == autoware_vehicle_msgs::msg::HazardLightsReport::ENABLE) {
     iv_turn_signal.header.stamp = hazard_lights.stamp;
     iv_turn_signal.data = tier4_vehicle_msgs::msg::TurnSignal::HAZARD;
     return iv_turn_signal;
@@ -206,10 +208,10 @@ inline auto convert(
 
   iv_turn_signal.header.stamp = turn_indicators.stamp;
   switch (turn_indicators.report) {
-    case autoware_auto_vehicle_msgs::msg::TurnIndicatorsReport::ENABLE_LEFT:
+    case autoware_vehicle_msgs::msg::TurnIndicatorsReport::ENABLE_LEFT:
       iv_turn_signal.data = tier4_vehicle_msgs::msg::TurnSignal::LEFT;
       break;
-    case autoware_auto_vehicle_msgs::msg::TurnIndicatorsReport::ENABLE_RIGHT:
+    case autoware_vehicle_msgs::msg::TurnIndicatorsReport::ENABLE_RIGHT:
       iv_turn_signal.data = tier4_vehicle_msgs::msg::TurnSignal::RIGHT;
       break;
     default:
@@ -221,27 +223,27 @@ inline auto convert(
 
 inline auto convert(const tier4_external_api_msgs::msg::TurnSignalStamped & in_signal)
 {
-  autoware_auto_vehicle_msgs::msg::HazardLightsCommand hazard;
+  autoware_vehicle_msgs::msg::HazardLightsCommand hazard;
   hazard.stamp = in_signal.stamp;
-  autoware_auto_vehicle_msgs::msg::TurnIndicatorsCommand turn;
+  autoware_vehicle_msgs::msg::TurnIndicatorsCommand turn;
   turn.stamp = in_signal.stamp;
 
   switch (in_signal.turn_signal.data) {
     case tier4_vehicle_msgs::msg::TurnSignal::HAZARD:
-      hazard.command = autoware_auto_vehicle_msgs::msg::HazardLightsCommand::ENABLE;
-      turn.command = autoware_auto_vehicle_msgs::msg::TurnIndicatorsCommand::DISABLE;
+      hazard.command = autoware_vehicle_msgs::msg::HazardLightsCommand::ENABLE;
+      turn.command = autoware_vehicle_msgs::msg::TurnIndicatorsCommand::DISABLE;
       break;
     case tier4_vehicle_msgs::msg::TurnSignal::LEFT:
-      hazard.command = autoware_auto_vehicle_msgs::msg::HazardLightsCommand::DISABLE;
-      turn.command = autoware_auto_vehicle_msgs::msg::TurnIndicatorsCommand::ENABLE_LEFT;
+      hazard.command = autoware_vehicle_msgs::msg::HazardLightsCommand::DISABLE;
+      turn.command = autoware_vehicle_msgs::msg::TurnIndicatorsCommand::ENABLE_LEFT;
       break;
     case tier4_vehicle_msgs::msg::TurnSignal::RIGHT:
-      hazard.command = autoware_auto_vehicle_msgs::msg::HazardLightsCommand::DISABLE;
-      turn.command = autoware_auto_vehicle_msgs::msg::TurnIndicatorsCommand::ENABLE_RIGHT;
+      hazard.command = autoware_vehicle_msgs::msg::HazardLightsCommand::DISABLE;
+      turn.command = autoware_vehicle_msgs::msg::TurnIndicatorsCommand::ENABLE_RIGHT;
       break;
     default:
-      hazard.command = autoware_auto_vehicle_msgs::msg::HazardLightsCommand::DISABLE;
-      turn.command = autoware_auto_vehicle_msgs::msg::TurnIndicatorsCommand::DISABLE;
+      hazard.command = autoware_vehicle_msgs::msg::HazardLightsCommand::DISABLE;
+      turn.command = autoware_vehicle_msgs::msg::TurnIndicatorsCommand::DISABLE;
   }
 
   LightSignal light_signal;
@@ -250,7 +252,7 @@ inline auto convert(const tier4_external_api_msgs::msg::TurnSignalStamped & in_s
   return light_signal;
 }
 
-inline auto convert(const autoware_auto_vehicle_msgs::msg::SteeringReport & steering)
+inline auto convert(const autoware_vehicle_msgs::msg::SteeringReport & steering)
 {
   tier4_vehicle_msgs::msg::Steering iv_steering;
   iv_steering.header.stamp = steering.stamp;
@@ -258,33 +260,33 @@ inline auto convert(const autoware_auto_vehicle_msgs::msg::SteeringReport & stee
   return iv_steering;
 }
 
-inline auto convert(const autoware_auto_perception_msgs::msg::ObjectClassification & classification)
+inline auto convert(const autoware_perception_msgs::msg::ObjectClassification & classification)
 {
   tier4_perception_msgs::msg::Semantic iv_semantic;
   iv_semantic.confidence = classification.probability;
   switch (classification.label) {
-    case autoware_auto_perception_msgs::msg::ObjectClassification::UNKNOWN:
+    case autoware_perception_msgs::msg::ObjectClassification::UNKNOWN:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::UNKNOWN;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::CAR:
+    case autoware_perception_msgs::msg::ObjectClassification::CAR:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::CAR;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::TRUCK:
+    case autoware_perception_msgs::msg::ObjectClassification::TRUCK:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::TRUCK;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::BUS:
+    case autoware_perception_msgs::msg::ObjectClassification::BUS:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::BUS;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::TRAILER:
+    case autoware_perception_msgs::msg::ObjectClassification::TRAILER:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::TRUCK;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::MOTORCYCLE:
+    case autoware_perception_msgs::msg::ObjectClassification::MOTORCYCLE:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::MOTORBIKE;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::BICYCLE:
+    case autoware_perception_msgs::msg::ObjectClassification::BICYCLE:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::BICYCLE;
       break;
-    case autoware_auto_perception_msgs::msg::ObjectClassification::PEDESTRIAN:
+    case autoware_perception_msgs::msg::ObjectClassification::PEDESTRIAN:
       iv_semantic.type = tier4_perception_msgs::msg::Semantic::PEDESTRIAN;
       break;
     default:
@@ -294,9 +296,9 @@ inline auto convert(const autoware_auto_perception_msgs::msg::ObjectClassificati
   return iv_semantic;
 }
 
-inline auto convert(const autoware_auto_perception_msgs::msg::TrackedObjectKinematics & kinematics)
+inline auto convert(const autoware_perception_msgs::msg::TrackedObjectKinematics & kinematics)
 {
-  using Kinematics = autoware_auto_perception_msgs::msg::TrackedObjectKinematics;
+  using Kinematics = autoware_perception_msgs::msg::TrackedObjectKinematics;
   tier4_perception_msgs::msg::State iv_state;
   iv_state.pose_covariance = kinematics.pose_with_covariance;
   iv_state.orientation_reliable = (kinematics.orientation_availability == Kinematics::AVAILABLE);
@@ -308,26 +310,26 @@ inline auto convert(const autoware_auto_perception_msgs::msg::TrackedObjectKinem
   return iv_state;
 }
 
-inline auto convert(const autoware_auto_perception_msgs::msg::Shape & shape)
+inline auto convert(const autoware_perception_msgs::msg::Shape & shape)
 {
   tier4_perception_msgs::msg::Shape iv_shape;
   iv_shape.dimensions = shape.dimensions;
   iv_shape.footprint = shape.footprint;
   switch (shape.type) {
-    case autoware_auto_perception_msgs::msg::Shape::BOUNDING_BOX:
+    case autoware_perception_msgs::msg::Shape::BOUNDING_BOX:
       iv_shape.type = tier4_perception_msgs::msg::Shape::BOUNDING_BOX;
       break;
-    case autoware_auto_perception_msgs::msg::Shape::CYLINDER:
+    case autoware_perception_msgs::msg::Shape::CYLINDER:
       iv_shape.type = tier4_perception_msgs::msg::Shape::CYLINDER;
       break;
-    case autoware_auto_perception_msgs::msg::Shape::POLYGON:
+    case autoware_perception_msgs::msg::Shape::POLYGON:
       iv_shape.type = tier4_perception_msgs::msg::Shape::POLYGON;
       break;
   }
   return iv_shape;
 }
 
-inline auto convert(const autoware_auto_perception_msgs::msg::TrackedObject & object)
+inline auto convert(const autoware_perception_msgs::msg::TrackedObject & object)
 {
   tier4_perception_msgs::msg::DynamicObject iv_object;
   iv_object.id = object.object_id;
@@ -337,7 +339,7 @@ inline auto convert(const autoware_auto_perception_msgs::msg::TrackedObject & ob
   return iv_object;
 }
 
-inline auto convert(const autoware_auto_perception_msgs::msg::TrackedObjects & objects)
+inline auto convert(const autoware_perception_msgs::msg::TrackedObjects & objects)
 {
   tier4_perception_msgs::msg::DynamicObjectArray iv_objects;
   iv_objects.header = objects.header;

@@ -30,7 +30,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/traffic_light/TrafficLight.msg"
   "msg/traffic_light/TrafficLightArray.msg"
   DEPENDENCIES
-    autoware_auto_perception_msgs
+    autoware_perception_msgs
     builtin_interfaces
     geometry_msgs
     sensor_msgs
