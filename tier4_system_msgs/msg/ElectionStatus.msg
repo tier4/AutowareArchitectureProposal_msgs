@@ -7,5 +7,5 @@ uint8 SUB_VCU = 3
 builtin_interfaces/Time stamp
 uint8 leader_id
 uint8 path_info
-uint8 tier4_system_msgs/MrmBehavior behavior
+tier4_system_msgs/MrmBehavior behavior
 uint8 election_count
