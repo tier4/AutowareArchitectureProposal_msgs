@@ -37,6 +37,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ServiceLog.msg"
   "msg/ModeChangeAvailable.msg"
   "msg/MrmBehaviorStatus.msg"
+  "msg/MrmState.msg"
   "srv/OperateMrm.srv"
   "srv/ChangeOperationMode.srv"
   "srv/ChangeAutowareControl.srv"
