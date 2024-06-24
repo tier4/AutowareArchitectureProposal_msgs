@@ -16,3 +16,5 @@ uint8 type
 uint8 term
 uint8 link
 uint8 heartbeat
+uint8 checksum
+
