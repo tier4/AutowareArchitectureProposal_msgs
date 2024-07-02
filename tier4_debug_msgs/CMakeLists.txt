@@ -27,6 +27,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Int64Stamped.msg"
   "msg/Int64MultiArrayStamped.msg"
   "msg/StringStamped.msg"
+  "msg/TimeNode.msg"
+  "msg/TimeTree.msg"
   DEPENDENCIES
     builtin_interfaces
 )
