@@ -4,5 +4,5 @@ int32 id
 string name
 # Processing time of the node
 float64 processing_time
-# ID of the parent node, -1 if no parent
+# ID of the parent node, 0 if no parent
 int32 parent_id
