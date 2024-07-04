@@ -27,10 +27,10 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Int64Stamped.msg"
   "msg/Int64MultiArrayStamped.msg"
   "msg/StringStamped.msg"
-  "msg/TimeNode.msg"
-  "msg/TimeTree.msg"
+  "msg/ProcessingTimeNode.msg"
+  "msg/ProcessingTimeTree.msg"
   DEPENDENCIES
-    builtin_interfaces
+  builtin_interfaces
 )
 
 if(BUILD_TESTING)
