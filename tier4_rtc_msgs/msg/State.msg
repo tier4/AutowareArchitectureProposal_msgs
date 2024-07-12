@@ -1,0 +1,7 @@
+uint8 type
+
+uint8 WAITING_FOR_EXECUTION = 0
+uint8 RUNNING = 1
+uint8 ABORTING = 2
+uint8 SUCCEEDED = 3
+uint8 FAILED = 4
