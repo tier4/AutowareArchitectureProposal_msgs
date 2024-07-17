@@ -21,6 +21,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/DiagnosticNode.msg"
   "msg/OperationModeAvailability.msg"
   "msg/ElectionStatus.msg"
+  "msg/ElectionCommunication.msg"
   "msg/EmergencyGoalsClearCommand.msg"
   "msg/EmergencyGoalsStamped.msg"
   "msg/EmergencyState.msg"
