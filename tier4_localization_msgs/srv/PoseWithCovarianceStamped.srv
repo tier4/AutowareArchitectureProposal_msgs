@@ -1,4 +1,5 @@
 geometry_msgs/PoseWithCovarianceStamped pose_with_covariance
 ---
 bool success
+bool reliability
 geometry_msgs/PoseWithCovarianceStamped pose_with_covariance
