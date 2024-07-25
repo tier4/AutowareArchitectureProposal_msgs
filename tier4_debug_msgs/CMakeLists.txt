@@ -29,6 +29,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/StringStamped.msg"
   "msg/ProcessingTimeNode.msg"
   "msg/ProcessingTimeTree.msg"
+  "msg/SystemUsage.msg"
+  "msg/SystemUsageArray.msg"
   DEPENDENCIES
   builtin_interfaces
 )
