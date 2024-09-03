@@ -10,7 +10,7 @@ ament_auto_find_build_dependencies()
 rosidl_generate_interfaces(
   ${PROJECT_NAME}
   "msg/Metric.msg"
-  "msg/MetricList.msg"
+  "msg/MetricArray.msg"
   DEPENDENCIES builtin_interfaces
 )
 

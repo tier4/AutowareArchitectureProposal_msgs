@@ -2,4 +2,4 @@
 builtin_interfaces/Time stamp
 
 # metrics list
-Metric[] metric_list
+Metric[] metric_array
