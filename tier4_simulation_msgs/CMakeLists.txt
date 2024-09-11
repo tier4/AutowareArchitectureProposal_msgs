@@ -21,7 +21,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   msg/UserDefinedValue.msg
   msg/UserDefinedValueType.msg
   msg/DummyObject.msg
-  msg/DymmyObjectInitialState.msg
+  msg/DummyObjectInitialState.msg
   DEPENDENCIES
     builtin_interfaces
     std_msgs
