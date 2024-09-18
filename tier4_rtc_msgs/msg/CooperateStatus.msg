@@ -10,7 +10,7 @@ tier4_rtc_msgs/Module module
 bool safe
 
 #Indicate whether there is request to cooperate from the system
-bool requested
+bool requested false
 
 # Indicate RTC approval status
 tier4_rtc_msgs/Command command_status
