@@ -5,4 +5,4 @@ string name
 string unit
 
 # value of the metric
-string value 
+string value
