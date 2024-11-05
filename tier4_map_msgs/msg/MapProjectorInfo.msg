@@ -2,6 +2,7 @@
 # Also refer to https://github.com/autowarefoundation/autoware.universe/tree/main/map/map_projection_loader/README.md
 string LOCAL = "local"
 string LOCAL_CARTESIAN_UTM = "LocalCartesianUTM"
+string LOCAL_CARTESIAN = "LocalCartesian"
 string MGRS = "MGRS"
 string TRANSVERSE_MERCATOR = "TransverseMercator"
 string projector_type
