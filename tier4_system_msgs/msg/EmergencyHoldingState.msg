@@ -1,2 +1,2 @@
 builtin_interfaces/Time stamp
-bool state
+bool is_holding
