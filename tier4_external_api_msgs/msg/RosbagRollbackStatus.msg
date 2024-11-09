@@ -10,7 +10,7 @@ uint8 ERROR=5
 uint8 status
 string message
 float64 progress
-uint64 bytes
+uint64 bytes_to_copy
 uint64 bytes_copied
 float64 elapsed_time
 float64 estimated_time
