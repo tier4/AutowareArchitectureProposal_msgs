@@ -1,3 +1,4 @@
+float32 max_acceleration
 float32 min_acceleration
 float32 max_jerk
 float32 min_jerk
