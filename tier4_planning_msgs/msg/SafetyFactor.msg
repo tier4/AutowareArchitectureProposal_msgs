@@ -14,6 +14,7 @@ unique_identifier_msgs/UUID object_id
 # use only for predicted objects
 autoware_perception_msgs/PredictedPath predicted_path
 
+# time to collision in relative to the header time
 float32 ttc_begin
 
 float32 ttc_end
@@ -22,4 +23,5 @@ float32 ttc_end
 # type == OBJECT: the object position
 geometry_msgs/Point[] points
 
+# module's primitive judgement of the safety for its decision
 bool is_safe
