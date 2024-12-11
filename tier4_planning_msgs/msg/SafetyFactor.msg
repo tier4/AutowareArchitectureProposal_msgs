@@ -1,6 +1,3 @@
-# msg format version
-string version_msg_format
-
 # constants for common use
 uint16 UNKNOWN = 0
 
