@@ -26,7 +26,6 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Int32MultiArrayStamped.msg"
   "msg/Int64Stamped.msg"
   "msg/Int64MultiArrayStamped.msg"
-  "msg/StringStamped.msg"
   "msg/ProcessingTimeNode.msg"
   "msg/ProcessingTimeTree.msg"
   "msg/SystemUsage.msg"
