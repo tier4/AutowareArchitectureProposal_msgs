@@ -39,6 +39,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   msg/RosbagCopyStatus.msg
   msg/RosbagLoggingMode.msg
   msg/RosbagRecordStatus.msg
+  msg/RosbagRollbackStatus.msg
   msg/ResponseStatus.msg
   msg/Route.msg
   msg/RouteSection.msg
@@ -67,6 +68,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   srv/SetPose.srv
   srv/SetRosbagLoggingMode.srv
   srv/SetRosbagRecord.srv
+  srv/SetRosbagRollback.srv
   srv/SetRoute.srv
   srv/SetService.srv
   srv/SetVelocityLimit.srv
