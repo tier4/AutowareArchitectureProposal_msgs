@@ -43,6 +43,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/OperateMrm.srv"
   "srv/ChangeOperationMode.srv"
   "srv/ChangeAutowareControl.srv"
+  "srv/ChangeTopicRelayControl.srv"
   DEPENDENCIES
     autoware_adapi_v1_msgs
     autoware_common_msgs
