@@ -14,7 +14,7 @@ uint8 SUB_VCU = 3
 builtin_interfaces/Time stamp
 uint8 leader_id                         # leader of all nodes
 uint8 path_info                         # The path used for driving
-tier4_system_msgs/MrmState mrm_state    # The mrm behavior determined for the entire system and its state
+autoware_adapi_v1_msgs/MrmState mrm_state    # The mrm behavior determined for the entire system and its state
 uint8 election_start_count              # means the number of times a failure has occurred.
 bool in_election                        # whether an election is in progress
 bool has_received_availability          # If false, it means that the Availability UDP packet from Autoware has not been received or has timed out.
