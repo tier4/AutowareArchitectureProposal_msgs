@@ -28,6 +28,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/DiagLinkStruct.msg"
   "msg/DiagLinkStatus.msg"
   "msg/OperationModeAvailability.msg"
+  "msg/ElectionStatus.msg"
   "msg/EmergencyGoalsClearCommand.msg"
   "msg/EmergencyGoalsStamped.msg"
   "msg/EmergencyHoldingState.msg"
@@ -42,6 +43,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ChangeOperationMode.srv"
   "srv/ChangeAutowareControl.srv"
   DEPENDENCIES
+    autoware_adapi_v1_msgs
     autoware_common_msgs
     builtin_interfaces
     diagnostic_msgs
