@@ -1,0 +1,5 @@
+std_msgs/Header header
+unique_identifier_msgs/UUID vehicle_id
+uint64 target_id
+tier4_v2x_msgs/ExtraTrafficSignal[] car_lights
+tier4_v2x_msgs/ExtraTrafficSignal[] pedestrian_lights
