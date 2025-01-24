@@ -25,3 +25,6 @@ geometry_msgs/Point[] points
 
 # module's primitive judgement of the safety for its decision
 bool is_safe
+
+# detail information.
+string detail
