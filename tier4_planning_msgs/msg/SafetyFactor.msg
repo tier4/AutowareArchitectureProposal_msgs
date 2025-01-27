@@ -26,5 +26,5 @@ geometry_msgs/Point[] points
 # module's primitive judgement of the safety for its decision
 bool is_safe
 
-# detail information.
+# optional field to store additional information about the object of interest
 string detail
